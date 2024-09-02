@@ -17,8 +17,7 @@ int main() {
 
 	};
 
-	Student stu;
-	stu.print();
+	
 
 	std::cout << "Worked" << endl;
 

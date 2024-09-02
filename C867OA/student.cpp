@@ -6,7 +6,7 @@ using namespace std;
 
 // constructors
 Student::Student() {
-	this->student_id = 0;
+	this->student_id = "";
 	this->first_name = "";
 	this->last_name = "";
 	this->email_address = "";
@@ -14,10 +14,10 @@ Student::Student() {
 	for (int i = 0; i < 3; i++) {
 		this->days_to_complete_course[i] = 0;
 	};
-	this->degree_program;
+	this->degree_program = DegreeProgram::SOFTWARE; // default?
 };
 
-Student::Student(int studentId, string firstName, string lastName, string emailAddress, int age, int daysToComplete[], DegreeProgram degreeProgram) {
+Student::Student(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysToComplete[], DegreeProgram degreeProgram) {
 	this->student_id = studentId;
 	this->first_name = firstName;
 	this->last_name = lastName;
@@ -33,7 +33,7 @@ Student::Student(int studentId, string firstName, string lastName, string emailA
 Student::~Student() {};
 
 // defining getters
-int Student::Get_student_id() {
+std::string Student::Get_student_id() {
 	return student_id;
 };
 
@@ -63,7 +63,7 @@ DegreeProgram Student::Get_degree_program() {
 
 
 // setters
-void Student::Set_student_id(int studentId) {
+void Student::Set_student_id(std::string studentId) {
 	this->student_id = studentId;
 };
 

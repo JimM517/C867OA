@@ -11,11 +11,11 @@ public:
 
 	// constructor
 	Student();
-	Student(int studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysToComplete[], DegreeProgram degreeProgram);
+	Student(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysToComplete[], DegreeProgram degreeProgram);
 	~Student();
 
 	// getters
-	int Get_student_id();
+	std::string Get_student_id();
 	std::string Get_first_name();
 	std::string Get_last_name();
 	std::string Get_email_address();
@@ -24,7 +24,7 @@ public:
 	DegreeProgram Get_degree_program();
 
 	// setters
-	void Set_student_id(int studentId);
+	void Set_student_id(std::string studentId);
 	void Set_first_name(std::string firstName);
 	void Set_last_name(std::string lastName);
 	void Set_email_address(std::string emailAddress);
@@ -34,7 +34,7 @@ public:
 
 
 private:
-	int student_id;
+	std::string student_id;
 	std::string first_name;
 	std::string last_name;
 	std::string email_address;
