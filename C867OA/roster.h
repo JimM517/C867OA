@@ -11,10 +11,19 @@ class Roster {
 public:
 
 	Student classRosterArray[5];
-	void Add()
+	void Add(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
+	void remove(std::string studentId);
+	void printAll();
+	void printAverageDaysInCourse(string studentID);
+	void printInvalidEmails();
+	void printByDegreeProgam();
 
 
 
+
+	Roster();
+
+	~Roster();
 
 
 };
