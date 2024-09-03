@@ -69,6 +69,25 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 // print invalid emails
 void Roster::PrintInvalidEmails() {
 
+	for (int i = 0; i < 5; i++) {
+
+		std::string email = classRosterArray[i]->Student::Get_email_address();
+
+		if (email.find('@' == -1)) {
+			std::cout << email;
+		}
+		if (email.find('.') == -1) {
+			std::cout << email;
+		}
+		if (email.find(" ") > 0) {
+			std::cout << email;
+		}
+
+
+
+	}
+
+
 }
 
 
