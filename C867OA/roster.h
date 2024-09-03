@@ -17,15 +17,19 @@ public:
 	void PrintAll();
 	void PrintAverageDaysInCourse(std::string studentID);
 	void PrintInvalidEmails();
-	void PrintByDegreeProgam();
-
-
+	void PrintByDegreeProgam(DegreeProgram degreeProgram);
 
 	// default constructor
 	Roster();
 
 	// deconstructor
 	~Roster();
+
+private:
+	int index = 0;
+
+
+	
 
 
 };

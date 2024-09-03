@@ -6,7 +6,7 @@
 using namespace std;
 
 
-int index = 0;
+
 
 
 // add method
@@ -25,11 +25,13 @@ void Roster::Remove(std::string studentId) {
 
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->Student::Get_student_id() == studentId) {
+			delete classRosterArray[i];
 			classRosterArray[i] = nullptr;
+			break;
 		}
-		else {
-			std::cout << "This student does not exist with this student id. Please try again.";
-		}
+
+		std::cout << "The provided student id does not match any records. Please try again";
+	
 	}
 	
 
@@ -42,7 +44,9 @@ void Roster::Remove(std::string studentId) {
 // print
 void Roster::PrintAll() {
 	for (int i = 0; i < 5; i++) {
-		classRosterArray[i]->Student::print();
+		if (classRosterArray[i] != nullptr) {
+			classRosterArray[i]->Student::print();
+		}
 	}
 }
 
@@ -55,9 +59,9 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 
 	// get days for student
 	for (int i = 0; i < 3; i++) {
-		if (classRosterArray[i]->Student::Get_student_id() == studentId) {
+		if (classRosterArray[i] != nullptr && classRosterArray[i]->Student::Get_student_id() == studentId) {
 			int* numDays = classRosterArray[i]->Get_days_to_complete();
-			average_days = (numDays[0] + numDays[1] + numDays[2]) / 3;
+			average_days = (numDays[0] + numDays[1] + numDays[2]) / 3.0;
 		}
 
 	}
@@ -73,19 +77,30 @@ void Roster::PrintInvalidEmails() {
 
 		std::string email = classRosterArray[i]->Student::Get_email_address();
 
-		if (email.find('@' == -1)) {
-			std::cout << email;
-		}
-		if (email.find('.') == -1) {
-			std::cout << email;
-		}
-		if (email.find(" ") > 0) {
-			std::cout << email;
+		if (email.find("a") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
+			cout << "Email invalid. Ensure provided email contains @, ., and no spaces";
 		}
 
 
 
 	}
+
+
+}
+
+
+// printing by degree program
+void Roster::PrintByDegreeProgam(DegreeProgram degreeProgram) {
+
+	for (int i = 0; i < 5; i++) {
+		
+		if (classRosterArray[i]->Student::Get_degree_program() == degreeProgram) {
+			classRosterArray[i]->Student::print();
+		}
+
+	}
+
+
 
 
 }
