@@ -12,7 +12,7 @@ int main() {
 	std::cout << "C867 Scripting and Programming Applications" << std::endl;
 	std::cout << "Language used: C++" << std::endl;
 	std::cout << "Student Id: 011573637" << std::endl;
-	std:cout << "James Magee";
+	std:cout << "James Magee" << std::endl;
 
 	const string studentData[] = {
 		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -47,20 +47,21 @@ int main() {
 		inSS >> d2;
 		inSS.ignore();
 		inSS >> d3;
+		inSS.ignore();
 
 		std::getline(inSS, degreeProgram, ',');
 
 
-		DegreeProgram d_program;
+		DegreeProgram d_program{};
 
 		if (degreeProgram == "SECURITY") {
-			d_program == DegreeProgram::SECURITY;
+			d_program = DegreeProgram::SECURITY;
 		}
 		else if (degreeProgram == "NETWORK") {
-			d_program == DegreeProgram::NETWORK;
+			d_program = DegreeProgram::NETWORK;
 		}
 		else if (degreeProgram == "SOFTWARE") {
-			d_program == DegreeProgram::SOFTWARE;
+			d_program = DegreeProgram::SOFTWARE;
 		}
 
 		classRoster.Add(studentId, firstName, lastName, emailAddress, age, d1, d2, d3, d_program);
@@ -74,10 +75,12 @@ int main() {
 
 	// print all functionality
 	classRoster.PrintAll();
+	std::cout << std::endl;
 
 
 	// print invalid emails
 	classRoster.PrintInvalidEmails();
+	std::cout << std::endl;
 
 
 
@@ -85,25 +88,27 @@ int main() {
 	// getting average days
 	for (int i = 0; i < 5; i++) {
 		classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->Get_student_id());
+		std::cout << "\t";
 	}
-
-
-
+	std::cout << std::endl;
 
 	// print by degree
 	classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
-
+	std::cout << std::endl;
 
 
 	// remove
 	classRoster.Remove("A3");
-
+	std::cout << std::endl;
+	
 
 	// print again
 	classRoster.PrintAll();
-
+	std::cout << std::endl;
+	
 	// remove A3 again
 	classRoster.Remove("A3");
+	std::cout << std::endl;
 
 
 	return 0;

@@ -106,6 +106,12 @@ void Roster::PrintByDegreeProgam(DegreeProgram degreeProgram) {
 }
 
 
+Roster::Roster() {};
+
+Roster::~Roster() {};
+
+
+
 
 
 
