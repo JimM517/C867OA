@@ -3,10 +3,16 @@
 #include "degree.h"
 #include "student.h"
 #include "roster.h"
+#include <sstream>
 using namespace std;
 
 
 int main() {
+
+	std::cout << "C867 Scripting and Programming Applications" << std::endl;
+	std::cout << "Language used: C++" << std::endl;
+	std::cout << "Student Id: 011573637" << std::endl;
+	std:cout << "James Magee";
 
 	const string studentData[] = {
 		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -17,10 +23,121 @@ int main() {
 
 	};
 
+
+	Roster classRoster;
+
+	// parsing student data and adding to array
+	for (int i = 0; i < 5; i++) {
+		
+		std::string studentId, firstName, lastName, emailAddress, degreeProgram;
+		int age, d1, d2, d3;
+
+		std::istringstream inSS(studentData[i]);
+
+
+		std::getline(inSS, studentId, ',');
+		std::getline(inSS, firstName, ',');
+		std::getline(inSS, lastName, ',');
+		std::getline(inSS, emailAddress);
+
+		inSS >> age;
+		inSS.ignore();
+		inSS >> d1;
+		inSS.ignore();
+		inSS >> d2;
+		inSS.ignore();
+		inSS >> d3;
+
+		std::getline(inSS, degreeProgram, ',');
+
+
+		DegreeProgram d_program;
+
+		if (degreeProgram == "SECURITY") {
+			d_program == DegreeProgram::SECURITY;
+		}
+		else if (degreeProgram == "NETWORK") {
+			d_program == DegreeProgram::NETWORK;
+		}
+		else if (degreeProgram == "SOFTWARE") {
+			d_program == DegreeProgram::SOFTWARE;
+		}
+
+		classRoster.Add(studentId, firstName, lastName, emailAddress, age, d1, d2, d3, d_program);
+
+
+	}
+
 	
 
-	std::cout << "Worked" << endl;
+	
+
+	// print all functionality
+	classRoster.PrintAll();
+
+
+	// print invalid emails
+	classRoster.PrintInvalidEmails();
+
+
+
+
+	// getting average days
+	for (int i = 0; i < 5; i++) {
+		classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->Get_student_id());
+	}
+
+
+
+
+	// print by degree
+	classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
+
+
+
+	// remove
+	classRoster.Remove("A3");
+
+
+	// print again
+	classRoster.PrintAll();
+
+	// remove A3 again
+	classRoster.Remove("A3");
 
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//F.Demonstrate the program’s required functionality by adding a main() function in main.cpp, which will contain the required function calls to achieve the following results :
+
+//	1.  Print out to the screen, via your application, the course title, the programming language used, your WGU student ID, and your name.
+//	2.  Create an instance of the Roster class called classRoster.
+//	3.  Add each student to classRoster.
+//	4.  Convert the following pseudo code to complete the rest of the  main() function :
+//	classRoster.printAll();
+//	classRoster.printInvalidEmails();
+//	loop through classRosterArray and for each element:
+//	classRoster.printAverageDaysInCourse(/*current_object's student id*/);
+//	Note: For the current_object's student id, use an accessor (i.e., getter) for the classRosterArray to access the student id.
+//	classRoster.printByDegreeProgram(SOFTWARE);
+//	classRoster.remove("A3");
+//	classRoster.printAll();
+//	classRoster.remove("A3");
+//	expected: the above line should print a message saying such a student with this ID was not found.
+//	5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
+
+
+//G.Demonstrate professional communication in the content and presentation of your submission.
