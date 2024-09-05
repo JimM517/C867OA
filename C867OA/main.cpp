@@ -4,6 +4,7 @@
 #include "student.h"
 #include "roster.h"
 #include <sstream>
+#include "main.h"
 using namespace std;
 
 
@@ -107,9 +108,14 @@ int main() {
 	std::cout << std::endl;
 	
 	// remove A3 again
-	//classRoster.Remove("A3");
-	//std::cout << std::endl;
+	// calling this again will trigger null pointer exception?
+	classRoster.Remove("A3");
+	std::cout << std::endl;
 
+
+
+
+	/*~Roster();*/
 
 	return 0;
 }

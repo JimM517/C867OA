@@ -115,9 +115,21 @@ void Roster::PrintByDegreeProgam(DegreeProgram degreeProgram) {
 }
 
 
-Roster::Roster() {};
+Roster::Roster() {
+	for (int i = 0; i < 5; i++) {
+		classRosterArray[i] = nullptr;
+	};
+};
 
-Roster::~Roster() {};
+Roster::~Roster() {
+	for (int i = 0; i < 5; i++) {
+		if (classRosterArray[i] != nullptr) {
+			delete classRosterArray[i];
+			classRosterArray[i] = nullptr;
+		}
+		std::cout << "In the deconstructor!";
+	}
+};
 
 
 
