@@ -12,7 +12,7 @@ int main() {
 	std::cout << "C867 Scripting and Programming Applications" << std::endl;
 	std::cout << "Language used: C++" << std::endl;
 	std::cout << "Student Id: 011573637" << std::endl;
-	std:cout << "James Magee" << std::endl;
+	std::cout << "James Magee" << std::endl;
 
 	const string studentData[] = {
 		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -38,7 +38,7 @@ int main() {
 		std::getline(inSS, studentId, ',');
 		std::getline(inSS, firstName, ',');
 		std::getline(inSS, lastName, ',');
-		std::getline(inSS, emailAddress);
+		std::getline(inSS, emailAddress, ',');
 
 		inSS >> age;
 		inSS.ignore();
@@ -107,8 +107,8 @@ int main() {
 	std::cout << std::endl;
 	
 	// remove A3 again
-	classRoster.Remove("A3");
-	std::cout << std::endl;
+	//classRoster.Remove("A3");
+	//std::cout << std::endl;
 
 
 	return 0;

@@ -12,7 +12,7 @@ using namespace std;
 // add method
 void Roster::Add(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
 	
-	int daysToComplete[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
+	int daysToComplete[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
 
 
 	classRosterArray[index++] = new Student(studentId, firstName, lastName, emailAddress, age, daysToComplete, degreeProgram);
@@ -23,16 +23,21 @@ void Roster::Add(std::string studentId, std::string firstName, std::string lastN
 // remove method
 void Roster::Remove(std::string studentId) {
 
+	bool id_found = false;
+
 	for (int i = 0; i < 5; i++) {
-		bool isFound = false;
+		
 
 		if (classRosterArray[i]->Student::Get_student_id() == studentId) {
 			delete classRosterArray[i];
 			classRosterArray[i] = nullptr;
+			id_found = true;
 			break;
 		}
 
-		std::cout << "The provided student id does not match any records. Please try again";
+		if (!id_found) {
+			std::cout << "The provided student id does not match any records. Please try again";
+		}
 	
 	}
 	
