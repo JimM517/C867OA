@@ -24,6 +24,8 @@ void Roster::Add(std::string studentId, std::string firstName, std::string lastN
 void Roster::Remove(std::string studentId) {
 
 	for (int i = 0; i < 5; i++) {
+		bool isFound = false;
+
 		if (classRosterArray[i]->Student::Get_student_id() == studentId) {
 			delete classRosterArray[i];
 			classRosterArray[i] = nullptr;
@@ -62,10 +64,12 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 		if (classRosterArray[i] != nullptr && classRosterArray[i]->Student::Get_student_id() == studentId) {
 			int* numDays = classRosterArray[i]->Get_days_to_complete();
 			average_days = (numDays[0] + numDays[1] + numDays[2]) / 3.0;
+			std::cout << "Average days in courses: " << average_days;
+			return;
 		}
 
 	}
-	std::cout << "Average days in courses: " << average_days;
+	std::cout << "Student not found... Please try entering a correct student id";
 
 }
 
