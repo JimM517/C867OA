@@ -65,11 +65,11 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 	double average_days = 0.0;
 
 	// get days for student
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i] != nullptr && classRosterArray[i]->Student::Get_student_id() == studentId) {
 			int* numDays = classRosterArray[i]->Get_days_to_complete();
 			average_days = (numDays[0] + numDays[1] + numDays[2]) / 3.0;
-			std::cout << "Average days in courses for: " << average_days << " for student with student id " << studentId;
+			std::cout << "Average days in courses: " << average_days << " for student with student id " << studentId << std::endl;
 			return;
 		}
 

@@ -75,47 +75,47 @@ int main() {
 	
 
 	// print all functionality
-	classRoster.PrintAll();
-	std::cout << std::endl;
+	//classRoster.PrintAll();
+	//std::cout << std::endl;
 
 
 	// print invalid emails
-	classRoster.PrintInvalidEmails();
-	std::cout << std::endl;
+	//classRoster.PrintInvalidEmails();
+	//std::cout << std::endl;
 
 
 
 
 	// getting average days
 	for (int i = 0; i < 5; i++) {
-		classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->Get_student_id());
+		classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->Student::Get_student_id());
 		std::cout << "\t";
 	}
 	std::cout << std::endl;
 
 	// print by degree
-	classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
-	std::cout << std::endl;
+	//classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
+	//std::cout << std::endl;
 
 
 	// remove
-	classRoster.Remove("A3");
-	std::cout << std::endl;
+	/*classRoster.Remove("A3");
+	std::cout << std::endl;*/
 	
 
 	// print again
-	classRoster.PrintAll();
-	std::cout << std::endl;
+	/*classRoster.PrintAll();
+	std::cout << std::endl;*/
 	
 	// remove A3 again
 	// calling this again will trigger null pointer exception?
-	classRoster.Remove("A3");
-	std::cout << std::endl;
+	/*classRoster.Remove("A3");
+	std::cout << std::endl;*/
 
 
 
 
-	~Roster();
+	/*~Roster();*/
 
 	return 0;
 }
