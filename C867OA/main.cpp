@@ -75,18 +75,20 @@ int main() {
 	
 
 	// print all functionality
-	//classRoster.PrintAll();
-	//std::cout << std::endl;
+	classRoster.PrintAll();
+	std::cout << std::endl;
 
 
 	// print invalid emails
-	//classRoster.PrintInvalidEmails();
-	//std::cout << std::endl;
+	/*** REVISED 9/7 ***/
+	classRoster.PrintInvalidEmails();
+	std::cout << std::endl;
 
 
 
 
 	// getting average days
+	/*** REVISED 9/7 ***/
 	for (int i = 0; i < 5; i++) {
 		classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->Student::Get_student_id());
 		std::cout << "\t";
@@ -94,27 +96,27 @@ int main() {
 	std::cout << std::endl;
 
 	// print by degree
-	//classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
-	//std::cout << std::endl;
+	classRoster.PrintByDegreeProgam(DegreeProgram::SOFTWARE);
+	std::cout << std::endl;
 
 
 	// remove
-	/*classRoster.Remove("A3");
-	std::cout << std::endl;*/
+	classRoster.Remove("A3");
+	std::cout << std::endl;
 	
 
 	// print again
-	/*classRoster.PrintAll();
-	std::cout << std::endl;*/
+	classRoster.PrintAll();
+	std::cout << std::endl;
 	
 	// remove A3 again
-	// calling this again will trigger null pointer exception?
-	/*classRoster.Remove("A3");
-	std::cout << std::endl;*/
+	// calling this again will trigger null pointer exception
+	//classRoster.Remove("A3");
+	//std::cout << std::endl;
 
 
 
-
+	/*** REVISED 9/7, there is console output when this is called ***/
 	/*~Roster();*/
 
 	return 0;

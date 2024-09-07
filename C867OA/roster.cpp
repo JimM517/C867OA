@@ -89,7 +89,7 @@ void Roster::PrintInvalidEmails() {
 
 		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
 			found_invalid = true;
-			cout << "Email invalid. Ensure provided email contains @, ., and no spaces";
+			cout << "Email invalid for student: " << classRosterArray[i]->Student::Get_student_id() << ". Ensure provided email contains @, ., and no spaces";
 		}
 
 		if (!found_invalid) {
@@ -131,7 +131,7 @@ Roster::~Roster() {
 			delete classRosterArray[i];
 			classRosterArray[i] = nullptr;
 		}
-		std::cout << "In the deconstructor!";
+		std::cout << "In the deconstructor!" << std::endl;
 	}
 };
 
