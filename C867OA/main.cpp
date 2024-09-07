@@ -115,7 +115,7 @@ int main() {
 
 
 
-	/*~Roster();*/
+	~Roster();
 
 	return 0;
 }

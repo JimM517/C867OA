@@ -20,7 +20,7 @@ public:
 	void PrintByDegreeProgam(DegreeProgram degreeProgram);
 
 	// default constructor
-	Roster();
+	/*Roster();*/
 
 	// deconstructor
 	~Roster();

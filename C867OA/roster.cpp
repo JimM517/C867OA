@@ -69,7 +69,7 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 		if (classRosterArray[i] != nullptr && classRosterArray[i]->Student::Get_student_id() == studentId) {
 			int* numDays = classRosterArray[i]->Get_days_to_complete();
 			average_days = (numDays[0] + numDays[1] + numDays[2]) / 3.0;
-			std::cout << "Average days in courses: " << average_days;
+			std::cout << "Average days in courses for: " << average_days << " for student with student id " << studentId;
 			return;
 		}
 
@@ -81,16 +81,20 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 
 // print invalid emails
 void Roster::PrintInvalidEmails() {
+	bool found_invalid = false;
 
 	for (int i = 0; i < 5; i++) {
 
 		std::string email = classRosterArray[i]->Student::Get_email_address();
 
-		if (email.find("a") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
+		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
+			found_invalid = true;
 			cout << "Email invalid. Ensure provided email contains @, ., and no spaces";
 		}
 
-
+		if (!found_invalid) {
+			cout << "No invalid emails found";
+		}
 
 	}
 
@@ -115,11 +119,11 @@ void Roster::PrintByDegreeProgam(DegreeProgram degreeProgram) {
 }
 
 
-Roster::Roster() {
-	for (int i = 0; i < 5; i++) {
-		classRosterArray[i] = nullptr;
-	};
-};
+//Roster::Roster() {
+//	for (int i = 0; i < 5; i++) {
+//		classRosterArray[i] = nullptr;
+//	};
+//};
 
 Roster::~Roster() {
 	for (int i = 0; i < 5; i++) {
