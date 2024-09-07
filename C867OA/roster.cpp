@@ -21,24 +21,38 @@ void Roster::Add(std::string studentId, std::string firstName, std::string lastN
 
 
 // remove method
+/*** REVISED 9/7 ***/
 void Roster::Remove(std::string studentId) {
 
 	bool id_found = false;
 
-	for (int i = 0; i < 5; i++) {
-		
+	//for (int i = 0; i < 5; i++) {
+	//	
 
-		if (classRosterArray[i]->Student::Get_student_id() == studentId) {
-			delete classRosterArray[i];
-			classRosterArray[i] = nullptr;
-			id_found = true;
+	//	if (classRosterArray[i]->Student::Get_student_id() == studentId) {
+	//		delete classRosterArray[i];
+	//		classRosterArray[i] = nullptr;
+	//		id_found = true;
+	//		break;
+	//	}
+
+	//	if (!id_found) {
+	//		std::cout << "The provided student id does not match any records. Please try again";
+	//	}
+	//
+	//}
+
+	for (int i = 0; i < 5; i++) {
+		if (classRosterArray[i] == nullptr) {
+			std::cout << "The provided student id does not exist. Please try again." << std::endl;
 			break;
 		}
-
-		if (!id_found) {
-			std::cout << "The provided student id does not match any records. Please try again";
+		else {
+			delete classRosterArray[i];
+			classRosterArray[i] = nullptr;
+			std::cout << "Student id: " << studentId << " has been deleted!" << std::endl;
+			break;
 		}
-	
 	}
 	
 
@@ -74,7 +88,7 @@ void Roster::PrintAverageDaysInCourse(std::string studentId) {
 		}
 
 	}
-	std::cout << "Student not found... Please try entering a correct student id";
+	std::cout << "Student not found... Please try entering a correct student id" << std::endl;
 
 }
 
@@ -86,14 +100,14 @@ void Roster::PrintInvalidEmails() {
 	for (int i = 0; i < 5; i++) {
 
 		std::string email = classRosterArray[i]->Student::Get_email_address();
-
+		// fixed... had find a instead of @
 		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
 			found_invalid = true;
-			cout << "Email invalid for student: " << classRosterArray[i]->Student::Get_student_id() << ". Ensure provided email contains @, ., and no spaces";
+			cout << "Email invalid for student: " << classRosterArray[i]->Student::Get_student_id() << ". Ensure provided email contains @, ., and no spaces" << std::endl;
 		}
 
 		if (!found_invalid) {
-			cout << "No invalid emails found";
+			cout << "No invalid emails found" << std::endl;
 		}
 
 	}

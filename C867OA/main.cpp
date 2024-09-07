@@ -14,6 +14,7 @@ int main() {
 	std::cout << "Language used: C++" << std::endl;
 	std::cout << "Student Id: 011573637" << std::endl;
 	std::cout << "James Magee" << std::endl;
+	std::cout << std::endl;
 
 	const string studentData[] = {
 		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -111,8 +112,9 @@ int main() {
 	
 	// remove A3 again
 	// calling this again will trigger null pointer exception
-	//classRoster.Remove("A3");
-	//std::cout << std::endl;
+	/*** REVISED 9/7 ***/
+	classRoster.Remove("A3");
+	std::cout << std::endl;
 
 
 
