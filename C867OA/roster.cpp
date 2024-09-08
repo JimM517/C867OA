@@ -103,7 +103,7 @@ void Roster::PrintInvalidEmails() {
 		// fixed... had find a instead of @
 		if (email.find("@") == std::string::npos || email.find(".") == std::string::npos || email.find(" ") != std::string::npos) {
 			found_invalid = true;
-			cout << "Email " << classRosterArray[i]->Student::Get_email_address() << " invalid for student:" << classRosterArray[i]->Student::Get_student_id() << ". Ensure provided email contains @, ., and no spaces" << std::endl;
+			cout << "Email " << email << " invalid for student:" << classRosterArray[i]->Student::Get_student_id() << ". Ensure provided email contains @, ., and no spaces" << std::endl;
 		}
 
 		if (!found_invalid) {
